@@ -12,6 +12,7 @@ h1 {
 body {
   height: 100vh;
   display: flex;
+  background: linear-gradient(to right, red, pink);
   justify-content: center;
   align-items: center;
   background-color: #f2f2f2; 
