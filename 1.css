@@ -1,0 +1,40 @@
+h1 {
+  color: red;
+  font-size: 30px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f2f2f2; 
+  font-family: Arial, sans-serif;
+}
+
+/* Box hình chữ nhật */
+.card {
+  background-color: white;
+  width: 400px;
+  padding: 30px;
+  border-radius: 10px; 
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  text-align: center;
+}
+
+/* Tiêu đề */
+.card h1 {
+  margin-bottom: 15px;
+}
+
+/* Nội dung */
+.card p {
+  margin-bottom: 10px;
+  font-size: 16px;
+}
