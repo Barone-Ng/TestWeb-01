@@ -1,8 +1,3 @@
-h1 {
-  color: red;
-  font-size: 30px;
-}
-
 * {
   margin: 0;
   padding: 0;
@@ -12,9 +7,9 @@ h1 {
 body {
   height: 100vh;
   display: flex;
-  background: linear-gradient(270deg, red, pink, #ffb6c1);
+  background: linear-gradient(270deg, #ff4d6d,#ffb3c6,#cdb4db,#ffc8dd);
   background-size: 600% 600%;
-  animation: bgMove 8s ease infinite;
+  animation: bgMove 25s ease infinite;
   justify-content: center;
   align-items: center;
   font-family: Arial, sans-serif;
@@ -28,39 +23,22 @@ body {
   border-radius: 10px; 
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
   text-align: center;
-  animation: fadeIn 1.2s ease forwards;
+  animation: fadeIn 3s ease forwards;
   opacity: 0;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 /* Tiêu đề */
 .card h1 {
   margin-bottom: 15px;
+  color: red;
+  font-size: 30px;
   overflow: hidden;
   white-space: nowrap;
   border-right: 3px solid red;
   width: 0;
   animation: typing 2.5s steps(15) forwards,
              blink 0.7s infinite;
-}
-
-@keyframes typing {
-  to { width: 100%; }
-}
-
-@keyframes blink {
-  50% { border-color: transparent; }
 }
 
 /* Nội dung */
@@ -71,6 +49,30 @@ body {
   
 .btn-primary {
   animation: pulse 1.5s infinite;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+.hearts span {
+  position: fixed;
+  bottom: -20px;
+  animation: floatUp 6s linear infinite;
+  font-size: 20px;
+}
+
+.hearts span:nth-child(1) { left: 20%; animation-delay: 0s; }
+.hearts span:nth-child(2) { left: 35%; animation-delay: 1s; }
+.hearts span:nth-child(3) { left: 50%; animation-delay: 2s; }
+.hearts span:nth-child(4) { left: 70%; animation-delay: 3s; }
+.hearts span:nth-child(5) { left: 85%; animation-delay: 4s; }
+
+			/* keyframes */
+@keyframes floatUp {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(-100vh); opacity: 0; }
 }
 
 @keyframes pulse {
@@ -85,23 +87,21 @@ body {
   100% { background-position: 0% 50%; }
 }
 
-.card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+@keyframes typing {
+  to { width: 100%; }
 }
 
-.hearts span {
-  position: fixed;
-  bottom: -20px;
-  animation: floatUp 6s infinite;
-  font-size: 20px;
+@keyframes blink {
+  50% { border-color: transparent; }
 }
 
-.hearts span:nth-child(1) { left: 20%; animation-delay: 0s; }
-.hearts span:nth-child(2) { left: 50%; animation-delay: 2s; }
-.hearts span:nth-child(3) { left: 80%; animation-delay: 4s; }
-
-@keyframes floatUp {
-  0% { transform: translateY(0); opacity: 1; }
-  100% { transform: translateY(-100vh); opacity: 0; }
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
