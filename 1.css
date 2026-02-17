@@ -1,3 +1,4 @@
+
 * {
   margin: 0;
   padding: 0;
@@ -58,16 +59,50 @@ body {
 
 .hearts span {
   position: fixed;
-  bottom: -20px;
-  animation: floatUp 6s linear infinite;
+  bottom: -30px;
+  font-size: 22px;
+  animation-name: floatUp;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.hearts span:nth-child(odd) {
+  font-size: 26px;
+}
+
+.hearts span:nth-child(even) {
   font-size: 20px;
 }
 
-.hearts span:nth-child(1) { left: 20%; animation-delay: 0s; }
-.hearts span:nth-child(2) { left: 35%; animation-delay: 1s; }
-.hearts span:nth-child(3) { left: 50%; animation-delay: 2s; }
-.hearts span:nth-child(4) { left: 70%; animation-delay: 3s; }
-.hearts span:nth-child(5) { left: 85%; animation-delay: 4s; }
+.hearts span:nth-child(1) {
+  left: 12%;
+  animation-duration: 7s;
+  animation-delay: 0s;
+}
+
+.hearts span:nth-child(2) {
+  left: 28%;
+  animation-duration: 9s;
+  animation-delay: 3s;
+}
+
+.hearts span:nth-child(3) {
+  left: 46%;
+  animation-duration: 6s;
+  animation-delay: 1s;
+}
+
+.hearts span:nth-child(4) {
+  left: 63%;
+  animation-duration: 10s;
+  animation-delay: 4s;
+}
+
+.hearts span:nth-child(5) {
+  left: 82%;
+  animation-duration: 8s;
+  animation-delay: 2s;
+}
 
 			/* keyframes */
 @keyframes floatUp {
@@ -103,5 +138,19 @@ body {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(15px, -50vh);
+  }
+  100% {
+    transform: translate(-10px, -110vh);
+    opacity: 0;
   }
 }
