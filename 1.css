@@ -16,15 +16,26 @@ body {
   font-family: Arial, sans-serif;
 }
 
+/* dảrk theme */
 body.dark {
   background: linear-gradient(
     270deg,
-    #0f0f0f,
+    #000000,
     #2b2b2b,
-    #444
+    #5a5a5a,
+    #969696
   );
   background-size: 600% 600%;
-  animation: bgMove 30s ease infinite;
+  animation: bgMove 25s ease infinite;
+}
+
+body.dark .card {
+  background-color: #f2f2f2;
+}
+
+body.dark .card h1 {
+  color: #333;
+  border-right-color: #333;
 }
 
 /* Box hình chữ nhật */
