@@ -1,42 +1,110 @@
-
+/* RESET */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* ================= BODY + BACKGROUND ================= */
 body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   background: linear-gradient(
-    120deg,
-    #ff4d6d 0%,
-    #ffb3c6 25%,
-    #ffffff 37%,
-    #ffb3c6 50%,
-    #cdb4db 75%,
-    #ffc8dd 100%
+    to bottom,
+    #ffc8dd 0%,
+    #ffc8dd 50%,
+    #cdb4db 50%,
+    #cdb4db 100%
   );
-  background-size: 300% 300%;
-  animation: bgMove 25s ease-in-out infinite;
-  background-attachment: fixed;
+
+  overflow: hidden;
+  animation: bgMove 20s ease-in-out infinite;
 }
 
-/* dảrk theme */
+/* ===== DARK THEME ===== */
 body.dark {
   background: linear-gradient(
-    120deg,
+    to bottom,
     #000000 0%,
-    #2b2b2b 30%,
-    #969696 45%,
-    #2b2b2b 60%,
-    #000000 100%
+    #000000 50%,
+    #2b2b2b 50%,
+    #2b2b2b 100%
   );
-  background-size: 300% 300%;
-  animation: bgMove 25s ease-in-out infinite;
-  background-attachment: fixed;
+}
+
+/* ================= WAVE LINE ================= */
+body::before {
+  content: "";
+  position: fixed;
+  top: 50%;
+  left: -20%;
+  width: 140%;
+  height: 4px;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    white,
+    transparent
+  );
+
+  animation:
+    waveLine 5s ease-in-out infinite,
+    moveWave 12s linear infinite;
+
+  z-index: 1;
+}
+
+/* Dark wave */
+body.dark::before {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #969696,
+    transparent
+  );
+}
+
+/* ================= CARD ================= */
+.card {
+  position: relative;
+  z-index: 2;
+
+  background-color: white;
+  width: 400px;
+  padding: 30px;
+  border-radius: 12px;
+
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  text-align: center;
+
+  opacity: 0;
+  animation: fadeIn 2s ease forwards;
+
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 body.dark .card {
   background-color: #f2f2f2;
+}
+
+/* ================= TITLE ================= */
+.card h1 {
+  margin-bottom: 15px;
+  font-size: 34px;
+  color: black;
+
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 3px solid black;
+  width: 0;
+
+  animation:
+    typing 2.5s steps(16) forwards,
+    blink 0.7s infinite;
 }
 
 body.dark .card h1 {
@@ -44,133 +112,83 @@ body.dark .card h1 {
   border-right-color: #333;
 }
 
-/* Box hình chữ nhật */
-.card {
-  background-color: white;
-  width: 400px;
-  padding: 30px;
-  border-radius: 10px; 
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-  text-align: center;
-  animation: fadeIn 3s ease forwards;
-  opacity: 0;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* Tiêu đề */
-.card h1 {
-  margin-bottom: 15px;
-  font-size: 35px;
-  overflow: hidden;
-  color: black;
-  white-space: nowrap;
-  border-right: 3px solid red;
-  width: 0;
-  animation: typing 2.5s steps(15) forwards,
-             blink 0.7s infinite;
-}
-
-/* Nội dung */
+/* ================= TEXT ================= */
 .card p {
-  margin-bottom: 10px;
   font-size: 16px;
-}
-  
-.btn-primary {
-  animation: pulse 1.5s infinite;
+  margin-bottom: 10px;
 }
 
+/* ================= HOVER ================= */
 .card:hover {
   transform: scale(1.05);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
 }
 
-.hearts span {
-  position: fixed;
-  bottom: -30px;
-  animation: floatUp linear infinite;
-}
-
-.hearts span:nth-child(odd) {
-  font-size: 26px;
-}
-
-.hearts span:nth-child(even) {
-  font-size: 20px;
-}
-
-.hearts span:nth-child(1) {
-  left: 12%;
-  animation-duration: 7s;
-  animation-delay: 0s;
-}
-
-.hearts span:nth-child(2) {
-  left: 28%;
-  animation-duration: 9s;
-  animation-delay: 3s;
-}
-
-.hearts span:nth-child(3) {
-  left: 46%;
-  animation-duration: 6s;
-  animation-delay: 1s;
-}
-
-.hearts span:nth-child(4) {
-  left: 63%;
-  animation-duration: 10s;
-  animation-delay: 4s;
-}
-
-.hearts span:nth-child(5) {
-  left: 82%;
-  animation-duration: 8s;
-  animation-delay: 2s;
-}
-
+/* ================= THEME BUTTON ================= */
 .theme-toggle {
   position: fixed;
   bottom: 20px;
   right: 20px;
+
   width: 48px;
   height: 48px;
   border-radius: 50%;
   border: none;
+
   cursor: pointer;
   font-size: 22px;
+
   background: white;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+
+  z-index: 10;
 }
 
-			/* keyframes */
-@keyframes pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.08); }
-  100% { transform: scale(1); }
-}
+/* ================= ANIMATIONS ================= */
 
-@keyframes bgMove {
+/* Wave physics */
+@keyframes waveLine {
   0% {
-    background-position: 0% 50%;
+    transform: translateY(0) skewX(0deg);
+  }
+  25% {
+    transform: translateY(-12px) skewX(8deg);
   }
   50% {
-    background-position: 100% 50%;
+    transform: translateY(0) skewX(0deg);
+  }
+  75% {
+    transform: translateY(12px) skewX(-8deg);
   }
   100% {
-    background-position: 0% 50%;
+    transform: translateY(0) skewX(0deg);
   }
 }
 
-@keyframes typing {
-  to { width: 100%; }
+/* Wave movement */
+@keyframes moveWave {
+  from {
+    left: -20%;
+  }
+  to {
+    left: -40%;
+  }
 }
 
-@keyframes blink {
-  50% { border-color: transparent; }
+/* Background subtle movement */
+@keyframes bgMove {
+  0% {
+    background-position: 50% 0%;
+  }
+  50% {
+    background-position: 50% 100%;
+  }
+  100% {
+    background-position: 50% 0%;
+  }
 }
 
+/* Fade in card */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -182,16 +200,16 @@ body.dark .card h1 {
   }
 }
 
-@keyframes floatUp {
-  0% {
-    transform: translate(0, 0);
-    opacity: 1;
+/* Typing effect */
+@keyframes typing {
+  to {
+    width: 100%;
   }
+}
+
+/* Cursor blink */
+@keyframes blink {
   50% {
-    transform: translate(15px, -50vh);
-  }
-  100% {
-    transform: translate(-10px, -110vh);
-    opacity: 0;
+    border-color: transparent;
   }
 }
