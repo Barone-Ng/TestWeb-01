@@ -16,6 +16,17 @@ body {
   font-family: Arial, sans-serif;
 }
 
+body.dark {
+  background: linear-gradient(
+    270deg,
+    #0f0f0f,
+    #2b2b2b,
+    #444
+  );
+  background-size: 600% 600%;
+  animation: bgMove 30s ease infinite;
+}
+
 /* Box hình chữ nhật */
 .card {
   background-color: white;
@@ -99,6 +110,21 @@ body {
   left: 82%;
   animation-duration: 8s;
   animation-delay: 2s;
+}
+
+.theme-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  font-size: 22px;
+  background: white;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  z-index: 1000;
 }
 
 			/* keyframes */
